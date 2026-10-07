@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/>
+    <title>Dungeon Bean</title>
+    <link href="data:," id="fav" rel="icon"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+    <link href="style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div hidden id="game">
+      <div class="hud">
+        <span id="lv"></span>
+        <span id="inv"></span>
+        <span id="hp"></span>
+        <span id="st"></span>
+        <span>
+          <button id="binv">🎒</button>
+          <button id="blan">🔦</button>
+          <button id="bmenu">☰</button>
+        </span>
+      </div>
+      <div id="stage">
+        <canvas id="c"></canvas>
+        <div id="msg"></div>
+      </div>
+      <div id="touch">
+        <div class="g">
+          <button data-a="u">Climb ↑</button>
+          <button data-a="b">Z +</button>
+          <button data-a="d">Climb ↓</button>
+          <button data-a="l">◀</button>
+          <button data-a="f">Z −</button>
+          <button data-a="r">▶</button>
+        </div>
+        <div class="g" style="grid-template-columns:76px">
+          <button data-a="j" style="height:100px">Jump</button>
+        </div>
+      </div>
+    </div>
+    <div class="ov" id="menu">
+      <div class="pn col">
+        <div class="logo" id="logo"></div>
+        <div class="mut" style="text-align:center">A 2D slice of a 3D dungeon</div>
+        <button class="p" id="play">New Game</button>
+        <button hidden id="cont">Continue</button>
+        <button id="bset">Settings</button>
+        <small id="mi" style="text-align:center"></small>
+      </div>
+    </div>
+    <div class="ov" hidden id="settings">
+      <div class="pn col">
+        <h2>Settings</h2>
+        <b>Audio</b>
+        <label>
+          Master
+          <input id="vm" max="1" min="0" step=".01" type="range"/>
+        </label>
+        <label>
+          Effects
+          <input id="vs" max="1" min="0" step=".01" type="range"/>
+        </label>
+        <label>
+          Music
+          <input id="vu" max="1" min="0" step=".01" type="range"/>
+        </label>
+        <b>Controls</b>
+        <label>
+          <span>Hide mobile controls</span>
+          <input id="ht" type="checkbox"/>
+        </label>
+        <div class="col" id="kbs"></div>
+        <button id="rk">Reset keybinds</button>
+        <button class="p" id="sback">Back</button>
+      </div>
+    </div>
+    <div class="ov" hidden id="pinp">
+      <div class="pn col">
+        <h2>Digital Lock</h2>
+        <div class="mut" id="pinfo">Enter the 4-digit code using the keypad.</div>
+        <div class="pin-display" id="pinDisplay">
+          <div class="pin-digit" data-pin-slot="0"></div>
+          <div class="pin-digit" data-pin-slot="1"></div>
+          <div class="pin-digit" data-pin-slot="2"></div>
+          <div class="pin-digit" data-pin-slot="3"></div>
+        </div>
+        <div class="keypad" id="pinpad">
+          <button data-digit="1">1</button>
+          <button data-digit="2">2</button>
+          <button data-digit="3">3</button>
+          <button data-digit="4">4</button>
+          <button data-digit="5">5</button>
+          <button data-digit="6">6</button>
+          <button data-digit="7">7</button>
+          <button data-digit="8">8</button>
+          <button data-digit="9">9</button>
+          <button data-digit="0">0</button>
+          <button id="pinclear">Clear</button>
+          <button id="pinback">⌫</button>
+        </div>
+        <button class="p pin-enter" id="pinok">Unlock</button>
+        <button id="pincancel">Cancel</button>
+      </div>
+    </div>
+    <div class="ov" hidden id="invp">
+      <div class="pn col">
+        <h2>🎒 Inventory</h2>
+        <div id="invl"></div>
+        <small id="invi"></small>
+        <button id="iclose">Close</button>
+      </div>
+    </div>
+    <div class="ov" hidden id="bld">
+      <div class="pn col">
+        <h2>Building level…</h2>
+        <div class="mut">Generating a new map in the background.</div>
+      </div>
+    </div>
+    <div class="ov" hidden id="over">
+      <div class="pn col">
+        <h2>💀 Game over</h2>
+        <div class="mut">Out of hearts. This level gets a brand-new map and your hearts are restored.</div>
+        <button class="p" id="retry">Retry level</button>
+      </div>
+    </div>
+    <div class="ov" hidden id="win">
+      <div class="pn col">
+        <h2 id="wt"></h2>
+        <div class="mut" id="wi"></div>
+        <button class="p" id="next">Next level ▶</button>
+      </div>
+    </div>
+    <script src="js/core.js"></script>
+    <script src="js/world.js"></script>
+    <script src="js/gameplay.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
